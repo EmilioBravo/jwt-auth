@@ -218,7 +218,7 @@ class JWTAuth
      */
     protected function makePayload($subject, array $customClaims = [])
     {
-        return $this->manager->getPayloadFactory()->make(
+        return $this->manager->getPayloadFactory()->setRefreshTTL($this->config('refresh_ttl'))->make(
             array_merge($customClaims, ['sub' => $subject])
         );
     }

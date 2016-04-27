@@ -64,7 +64,6 @@ class PayloadFactory
     public function make(array $customClaims = [])
     {
         $claims = $this->buildClaims($customClaims)->resolveClaims();
-
         return new Payload($claims, $this->validator, $this->refreshFlow);
     }
 

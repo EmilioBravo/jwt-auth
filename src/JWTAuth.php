@@ -3,6 +3,7 @@
 namespace Tymon\JWTAuth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Providers\Auth\AuthInterface;
 use Tymon\JWTAuth\Providers\User\UserInterface;
@@ -218,7 +219,7 @@ class JWTAuth
      */
     protected function makePayload($subject, array $customClaims = [])
     {
-        return $this->manager->getPayloadFactory()->setRefreshTTL($this->config('refresh_ttl'))->make(
+        return $this->manager->getPayloadFactory()->setRefreshTTL(Config::get('jwt::refresh_ttl'))->make(
             array_merge($customClaims, ['sub' => $subject])
         );
     }

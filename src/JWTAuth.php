@@ -3,7 +3,7 @@
 namespace Tymon\JWTAuth;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config
+use Illuminate\Support\Facades\Config;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Providers\Auth\AuthInterface;
 use Tymon\JWTAuth\Providers\User\UserInterface;
